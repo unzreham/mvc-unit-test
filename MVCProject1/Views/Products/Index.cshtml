@@ -1,0 +1,53 @@
+﻿@{
+    var ps = (List<ProductModel>)ViewData["ps"];
+    var color = (String)ViewData["color"];
+    Layout = "_Layout1";
+
+}
+
+
+
+<div class="jumbotron">
+    <h1> welcome to our online store </h1>
+
+</div>
+
+\
+
+@*<ul>
+
+        @foreach (var p in ps)
+        {
+            <li>The product is is @p.id,      </li>
+        }
+    </ul>
+*@
+
+
+
+<table style="width:100%" class="table table-@color">
+    <thead class="thead-light">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>image</th>
+            <th>action</th>
+        </tr>
+        <tr>
+    </thead>
+    @foreach (var p in ps)
+    {
+
+        <tr>
+            <th scope="row">@p.id</th>
+            <td>@p.name</td>
+            <td><img src="@p.image" alt="" style="width:120px;height:120px;"></td>
+            <td>
+                <a href="/products/details/@p.id"><button type="button" class="btn btn-primary btn-sm">Small button</button></a>
+            </td>
+        </tr>
+    }
+
+    </tr>
+
+</table>
